@@ -49,6 +49,22 @@ pipeline {
             }
         }
 
+        stage('Credential Preflight') {
+            steps {
+                withCredentials([usernamePassword(
+                    credentialsId: DOCKERHUB_CREDENTIALS_ID,
+                    usernameVariable: 'DOCKER_USER',
+                    passwordVariable: 'DOCKER_TOKEN'
+                )]) {
+                    bat '''
+                    docker --version
+                    echo %DOCKER_TOKEN% | docker login -u %DOCKER_USER% --password-stdin
+                    docker logout
+                    '''
+                }
+            }
+        }
+
         stage('Push Docker Image to Docker Hub') {
             steps {
                 script {
