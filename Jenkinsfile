@@ -65,6 +65,12 @@ pipeline {
             }
         }
 
+        stage('test') {
+            steps {
+                echo 'Testing the pipeline...'
+            }
+}
+
         stage('Push Docker Image to Docker Hub') {
             steps {
                 script {
