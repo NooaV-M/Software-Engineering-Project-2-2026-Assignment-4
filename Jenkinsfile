@@ -49,48 +49,6 @@ pipeline {
             }
         }
 
-        stage('Credential Preflight') {
-            steps {
-                echo "Preflight: attempting to bind credential ID '${env.DOCKERHUB_CREDENTIALS_ID}'"
-                script {
-                    try {
-                        withCredentials([usernamePassword(
-                            credentialsId: "${env.DOCKERHUB_CREDENTIALS_ID}",
-                            usernameVariable: 'DOCKER_USER',
-                            passwordVariable: 'DOCKER_TOKEN'
-                        )]) {
-                            echo 'Preflight: credentials bound, validating Docker login'
-                            bat '''
-                            @echo off
-                            docker --version
-                            if not defined DOCKER_USER (
-                              echo DOCKER_USER is missing
-                              exit /b 1
-                            )
-                            if not defined DOCKER_TOKEN (
-                              echo DOCKER_TOKEN is missing
-                              exit /b 1
-                            )
-                            powershell -NoProfile -Command "$env:DOCKER_TOKEN | docker login -u $env:DOCKER_USER --password-stdin"
-                            if errorlevel 1 exit /b 1
-                            docker logout
-                            '''
-                            echo 'Preflight: login/logout succeeded'
-                        }
-                    } catch (err) {
-                        echo "Preflight failure: ${err.getClass().getName()}: ${err.getMessage()}"
-                        throw err
-                    }
-                }
-            }
-        }
-
-        stage('test') {
-            steps {
-                echo 'Testing the pipeline...'
-            }
-}
-
         stage('Push Docker Image to Docker Hub') {
             steps {
                 script {
