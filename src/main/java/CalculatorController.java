@@ -64,8 +64,10 @@ public class CalculatorController {
     }
 
     public void calculateTotal(ActionEvent actionEvent) {
-        lblResultNum.setText(Double.toString(calculator.getTotal()));
-        System.out.println("Total cost: " + calculator.getTotal());
+        Double total = calculator.getTotal(currentLocale.toString());
+
+        lblResultNum.setText(Double.toString(total));
+        System.out.println("Total cost: " + total);
     }
 
     public void addToTotal(ActionEvent actionEvent) {

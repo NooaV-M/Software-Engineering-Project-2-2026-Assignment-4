@@ -1,0 +1,41 @@
+INSERT INTO localized_strings (locale, `key`, translation) VALUES
+('en_UK', 'itemNumberPrompt', 'Enter the number of items to purchase:'),
+('en_UK', 'itemPricePrompt', 'Enter the price for item:'),
+('en_UK', 'itemQuantityPrompt', 'Enter the quantity for item:'),
+('en_UK', 'totalCostMessage', 'Total cost:'),
+('en_UK', 'checkOutPrompt', 'Enter 0 to check out:'),
+('en_UK', 'addItemPrompt', 'Add to total:'),
+('en_UK', 'calcItemPrompt', 'Calculate Total'),
+
+('fi_FI', 'itemNumberPrompt', 'Syötä ostettavien tuotteiden määrä:'),
+('fi_FI', 'itemPricePrompt', 'Syötä tuotteen hinta:'),
+('fi_FI', 'itemQuantityPrompt', 'Syötä tuotteen määrä:'),
+('fi_FI', 'totalCostMessage', 'Kokonaishinta:'),
+('fi_FI', 'checkOutPrompt', 'Syötä 0 lopettaaksesi:'),
+('fi_FI', 'addItemPrompt', 'Add to total:'),
+('fi_FI', 'calcItemPrompt', 'Laske hinta'),
+
+('sv_SE', 'itemNumberPrompt', 'Ange antalet varor att köpa:'),
+('sv_SE', 'itemPricePrompt', 'Ange priset för varan:'),
+('sv_SE', 'itemQuantityPrompt', 'Ange mängden varor:'),
+('sv_SE', 'totalCostMessage', 'Total kostnad:'),
+('sv_SE', 'checkOutPrompt', 'Ange 0 för att checka ut:'),
+('sv_SE', 'addItemPrompt', 'lägga till totalt'),
+('sv_SE', 'calcItemPrompt', 'Beräkna totalt'),
+
+('ja_JP', 'itemNumberPrompt', '購入する商品の数を入力してください:'),
+('ja_JP', 'itemPricePrompt', '商品の価格を入力してください:'),
+('ja_JP', 'itemQuantityPrompt', '商品の数量を入力してください:'),
+('ja_JP', 'totalCostMessage', '合計金額:'),
+('ja_JP', 'checkOutPrompt', 'チェックアウトするには0を入力してください:'),
+('ja_JP', 'addItemPrompt', '合計に追加する:'),
+('ja_JP', 'calcItemPrompt', '合計を計算する'),
+
+('ar_SA', 'itemNumberPrompt', 'العناصر عدد أدخل:'),
+('ar_SA', 'itemPricePrompt', 'دخل سعر العنصر:'),
+('ar_SA', 'itemQuantityPrompt', 'دخل كمية العنصر:'),
+('ar_SA', 'totalCostMessage', 'الإجمالية التكلفة:'),
+('ar_SA', 'checkOutPrompt', 'أدخل 0 لإتمام عملية الشراء:'),
+('ar_SA', 'addItemPrompt', 'إضافة إلى المجموع'),
+('ar_SA', 'calcItemPrompt', 'احسب الإجمالي')
+ON DUPLICATE KEY UPDATE translation = VALUES(translation);
