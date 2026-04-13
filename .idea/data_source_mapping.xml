@@ -3,6 +3,6 @@
   <component name="DataSourcePerFileMappings">
     <file url="file://$PROJECT_DIR$/DB-init.sql" value="19790f14-ed6e-4b67-b152-137a977f26df" />
     <file url="file://$PROJECT_DIR$/seed-localized-strings.sql" value="19790f14-ed6e-4b67-b152-137a977f26df" />
-    <file url="file://$PROJECT_DIR$/src/main/java/LocalizationService.java" value="19790f14-ed6e-4b67-b152-137a977f26df" />
+    <file url="file://$PROJECT_DIR$/src/main/java/helper/LocalizationService.java" value="19790f14-ed6e-4b67-b152-137a977f26df" />
   </component>
 </project>
